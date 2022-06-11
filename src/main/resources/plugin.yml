@@ -1,0 +1,5 @@
+name: Harmony
+version: '${project.version}'
+main: me.zombie_striker.harmony.HarmonyPlugin
+api-version: 1.18
+authors: [ Zombie_Striker ]
