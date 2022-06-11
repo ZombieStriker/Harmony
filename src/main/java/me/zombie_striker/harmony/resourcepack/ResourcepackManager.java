@@ -8,7 +8,9 @@ import me.zombie_striker.harmony.util.Util;
 import org.bukkit.entity.Player;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
@@ -45,6 +47,28 @@ public class ResourcepackManager {
     }
     public File getModelItemFolder(){
         return new File(getModelsFolder(),"item");
+    }
+
+    public void transferItemModelJsonFile(String modelName, InputStream fileContents){
+        File json = new File(getModelItemFolder(),modelName+".json");
+        if(!json.exists()){
+            try {
+                json.createNewFile();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        try {
+            FileWriter fw = new FileWriter(json);
+            int read = fileContents.read();
+            while(read!=-1){
+                fw.write(read);
+            }
+            fw.flush();
+            fw.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void generateResourcepack(){

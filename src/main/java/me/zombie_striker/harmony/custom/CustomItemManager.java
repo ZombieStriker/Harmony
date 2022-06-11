@@ -1,9 +1,11 @@
 package me.zombie_striker.harmony.custom;
 
+import me.zombie_striker.harmony.Harmony;
 import me.zombie_striker.harmony.HarmonyPlugin;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
+import java.io.InputStream;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -20,6 +22,12 @@ public class CustomItemManager {
     public CustomItem registerCustomItem(Material material, int id, String model_json_name){
         CustomItem customItem = new CustomItem(material,id,model_json_name);
         customitems.add(customItem);
+        return customItem;
+    }
+    public CustomItem registerCustomItem(Material material, int id, String model_json_name, InputStream modelJson){
+        CustomItem customItem = new CustomItem(material,id,model_json_name);
+        customitems.add(customItem);
+        Harmony.getInstance().getManager().transferItemModelJsonFile(model_json_name,modelJson);
         return customItem;
     }
 
