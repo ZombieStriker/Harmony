@@ -17,4 +17,6 @@ public class HarmonyListener implements Listener {
             Harmony.getInstance().getManager().sendResourcePack(event.getPlayer(),Harmony.getInstance().getManager().getResourcepackName());
         }
     }
+
+
 }

@@ -27,6 +27,22 @@ public final class HarmonyPlugin extends JavaPlugin {
 
         Bukkit.getPluginManager().registerEvents(new HarmonyListener(this),this);
 
+
+        /**
+         * This section is for loading textures and models for the resourcepack.
+         */
+
+        Harmony.getInstance().getManager().transferTextureFile("red",Harmony.class.getResourceAsStream("resourcepack_textures/red.png"));
+        Harmony.getInstance().getManager().transferTextureFile("black",Harmony.class.getResourceAsStream("resourcepack_textures/black.png"));
+        Harmony.getInstance().getManager().transferTextureFile("gray13",Harmony.class.getResourceAsStream("resourcepack_textures/gray13.png"));
+        Harmony.getInstance().getManager().transferTextureFile("gray21",Harmony.class.getResourceAsStream("resourcepack_textures/gray21.png"));
+        Harmony.getInstance().getManager().transferTextureFile("gray42",Harmony.class.getResourceAsStream("resourcepack_textures/gray42.png"));
+        Harmony.getInstance().getManager().transferTextureFile("brown1",Harmony.class.getResourceAsStream("resourcepack_textures/brown1.png"));
+        Harmony.getInstance().getManager().transferTextureFile("brown2",Harmony.class.getResourceAsStream("resourcepack_textures/brown2.png"));
+        Harmony.getInstance().getManager().transferTextureFile("brown3",Harmony.class.getResourceAsStream("resourcepack_textures/brown3.png"));
+        Harmony.getInstance().getManager().transferTextureFile("brown4",Harmony.class.getResourceAsStream("resourcepack_textures/brown4.png"));
+
+
         new BukkitRunnable(){
             @Override
             public void run() {
